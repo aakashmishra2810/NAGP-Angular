@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { Student } from 'src/app/models/student';
 import { OnboardingServiceService } from '../services/onboarding-service.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-onboardingdetails',
@@ -36,6 +37,18 @@ export class OnboardingdetailsComponent implements OnInit {
   }
   onDelete(student: Student) {
     this.deleteService.emit(student);
+    this.studentOnboardingService.DeleteStudentFromList(student.ID).pipe(first())
+      .subscribe(
+        data => {
+          alert('Student details deleted successfully');
+          this.studentOnboardingService.getAllStudents();
+        
+        },
+        error => {
+          alert('Student details deletion failed! Please try again later.');
+        }
+
+      );;
   }
 
   

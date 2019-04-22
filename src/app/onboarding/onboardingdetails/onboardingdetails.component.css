@@ -1,0 +1,26 @@
+.student-info {
+  display: flex;
+  margin: 16px;
+  border: 1px solid #f3d195;
+  border-radius: 5px;
+  padding: 12px;
+  /* background: #f3b095; */
+}
+.student-info span {
+  margin-right: 50px;
+}
+
+.student-exp {
+  display: flex;
+  outline: none;
+  margin-left: auto;
+}
+
+.inc-btn {
+  padding: 5px;
+  margin-left: 5px;
+  color: #ffffff;
+  margin-right: 5px;
+  background: #57c355;
+  width: 50px;
+}

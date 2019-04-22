@@ -52,7 +52,10 @@ export class OnboardingServiceService {
     console.log(currentData.indexOf(student));
     this.studentList$.next(currentData);
   }
-
+  DeleteStudentFromList(studentID: number)
+{
+    return this.http.put(`/student/delete/${studentID}`,Student);
+}
   AddStudentToEdit(studentID: number) {
     window.localStorage.removeItem("editStudentID");
     localStorage.setItem('editStudentID', JSON.stringify(studentID));

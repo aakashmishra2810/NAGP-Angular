@@ -106,6 +106,15 @@ export class BackendInterceptor implements HttpInterceptor {
                 return of(new HttpResponse({ status: 200 }));
             }
 
+            //delete student
+            if (request.url.match(/\/student\/delete\/\d+$/) && request.method === 'PUT')
+            {
+                let urlParts = request.url.split('/');
+                let id = parseInt(urlParts[urlParts.length - 1]);
+                students.splice(students.findIndex(student => { return student.ID === id; }),1);
+                localStorage.setItem('students', JSON.stringify(students));
+                return of(new HttpResponse({ status: 200 }));
+            }
             // delete user
             // if (request.url.match(/\/users\/\d+$/) && request.method === 'DELETE') {
             //     // check for fake auth token in header and return user if valid, this security is implemented server side in a real application
@@ -173,6 +182,8 @@ export class BackendInterceptor implements HttpInterceptor {
                 return of(new HttpResponse({ status: 200 }));
 
             }
+
+
 
             // pass through any requests not handled above
             return next.handle(request);

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Student } from '../../models/student';
 import { OnboardingServiceService } from '../services/onboarding-service.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-onboardinghome',
@@ -20,7 +21,19 @@ export class OnboardinghomeComponent implements OnInit {
   onDeletedClick(student: Student) {
     let canDelete = confirm("Do you really want to delete?");
     if (canDelete) {
-     this.studentOnboardingService.DeleteStudentServiceRequest(student);
+      console.log(student);
+      this.studentOnboardingService.DeleteStudentFromList(student.ID).pipe(first())
+        .subscribe(
+          data => {
+            alert('Student details deleted successfully');
+            this.studentOnboardingService.getAllStudents();
+
+          },
+          error => {
+            alert('Student details deletion failed! Please try again later.');
+          }
+
+        );;
     }
   }
 }

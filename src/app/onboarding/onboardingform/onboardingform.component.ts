@@ -38,6 +38,7 @@ export class OnboardingformComponent implements OnInit {
       this.submitButtonText = 'Update';
       this.studentOnboardingService.GetStudentToEdit(editStudentID).subscribe(data => {
         if (data) {
+          
           this.studentForm.setValue(data);
         }
       });
@@ -89,7 +90,7 @@ export class OnboardingformComponent implements OnInit {
             alert('Student details updation failed! Please try again later.');
           }
 
-        )
+        );
     }
     else {
 
