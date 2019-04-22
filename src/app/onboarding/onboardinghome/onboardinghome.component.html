@@ -1,0 +1,31 @@
+<div class="container">
+  <ul class="nav nav-pills nav-justified">
+    <li class="active"><a data-toggle="pill" href="#home">Onboarding Form</a></li>
+    <li><a data-toggle="pill" href="#menu1">Student List</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div id="home" class="tab-pane fade in active">
+    <h3>Onboarding Form</h3>
+    <!-- <app-student-add ></app-student-add> -->
+  </div> 
+  <div id="menu1" class="tab-pane fade"> 
+    <h3>Student List</h3>
+    <div class="form-group">
+     
+    <select class="form-control" [(ngModel)]="selectedCategory">
+      <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+    </select>
+    <br>
+   
+    <input type="text" class="form-control" [(ngModel)]="searchStudentString" placeholder="Search Student">
+    </div>
+
+    <div *ngFor="let student of (studentOnboardingService.studentList$ | async) | filterStudentList: selectedCategory | searchStudentLsitPipe : searchStudentString">    
+      <!-- <app-student-detail [student]="student" (deleteService)="onDeletedClick($event)">
+      </app-student-detail>  -->
+    </div>
+
+  </div>
+  </div>
+</div>
