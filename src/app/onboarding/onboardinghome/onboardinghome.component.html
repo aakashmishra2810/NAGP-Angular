@@ -8,6 +8,7 @@
     <div id="home" class="tab-pane fade in active">
     <h3>Onboarding Form</h3>
     <!-- <app-student-add ></app-student-add> -->
+    <app-onboardingform></app-onboardingform>
   </div> 
   <div id="menu1" class="tab-pane fade"> 
     <h3>Student List</h3>
@@ -22,8 +23,8 @@
     </div>
 
     <div *ngFor="let student of (studentOnboardingService.studentList$ | async) | filterStudentList: selectedCategory | searchStudentLsitPipe : searchStudentString">    
-      <!-- <app-student-detail [student]="student" (deleteService)="onDeletedClick($event)">
-      </app-student-detail>  -->
+      <app-onboardingdetails [student]="student" (deleteService)="onDeletedClick($event)">
+      </app-onboardingdetails> 
     </div>
 
   </div>

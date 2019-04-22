@@ -1,0 +1,83 @@
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit();">
+  <div *ngIf="submitted && !studentForm.valid" class="invalid-feedback">
+    <div class="alert alert-danger" role="alert">Required fields</div>
+  </div>
+  <div class="form-group">
+    <input type="hidden" class="form-control" formControlName="ID" [style.visibility]="{'visible' : 'hidden'}">
+  </div>
+  <div class="form-group">
+    <label for="FirstName">First Name:</label>
+    <input type="text" class="form-control" formControlName="FirstName"
+      [ngClass]="{ 'is-invalid': submitted && fCntrls.FirstName.errors }" />
+    <div *ngIf="submitted && fCntrls.FirstName.errors" class="invalid-feedback">
+      <div *ngIf="fCntrls.FirstName.errors.required">First Name is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="Category">Category:</label>
+    <select class="form-control" formControlName="Category"
+      [ngClass]="{ 'is-invalid': submitted && fCntrls.FirstName.errors }">
+      <option *ngFor="let category of categories" [value]="category">{{category}}</option>
+    </select>
+    <div *ngIf="submitted && fCntrls.Category.errors" class="invalid-feedback">
+      <div *ngIf="fCntrls.Category.errors.required">Category is required</div>
+    </div>
+  </div>
+
+  
+  <div class="form-group">
+    <label for="DocumentsList">Documents:</label>
+    <br>
+    <div formArrayName="DocumentList" *ngFor="let order of fCntrls.DocumentList['controls']; let i = index">
+      <div>
+      <input type="checkbox" [formControlName]="i">
+      {{DocumentList[i].name}}<span
+        *ngIf="DocumentList[i].requiredFor==='' || DocumentList[i].requiredFor===fCntrls.Category.value">*</span>
+      <div *ngIf="submitted && fCntrls.DocumentList.controls[i].errors">
+        <div *ngIf="submitted && fCntrls.DocumentList.controls[i].errors">Document required</div>
+      </div>
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="DOB">Date Of Birth:</label>
+    <input type="date" class="form-control" formControlName="DOB"
+      [ngClass]="{ 'is-invalid': submitted && fCntrls.DOB.errors }" />
+    <div *ngIf="submitted && fCntrls.DOB.errors" class="invalid-feedback">
+      <div *ngIf="fCntrls.DOB.errors.required">Date Of Birth is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="FatherName">Father name:</label>
+    <input type="text" class="form-control" formControlName="FatherName"
+      [ngClass]="{ 'is-invalid': submitted && fCntrls.FatherName.errors }" />
+    <div *ngIf="submitted && fCntrls.FatherName.errors" class="invalid-feedback">
+      <div *ngIf="fCntrls.FatherName.errors.required">Father Name is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="MotherName">Mother name:</label>
+    <input type="text" class="form-control" formControlName="MotherName"
+      [ngClass]="{ 'is-invalid': submitted && fCntrls.MotherName.errors }" />
+    <div *ngIf="submitted && fCntrls.MotherName.errors" class="invalid-feedback">
+      <div *ngIf="fCntrls.MotherName.errors.required">Mother Name is required</div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="LastScore">Last score:</label>
+    <input type="text" class="form-control" formControlName="LastScore"
+      [ngClass]="{ 'is-invalid': submitted && fCntrls.LastScore.errors }" />
+    <div *ngIf="submitted && fCntrls.LastScore.errors" class="invalid-feedback">
+      <div *ngIf="fCntrls.LastScore.errors.required">Last score is required</div>
+    </div>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-success" [disabled]="isViewState">{{ submitButtonText }}</button>
+    &nbsp;&nbsp;
+    <button type="reset" (click)="ResetForm()" class="btn btn-default" [disabled]="isViewState">Reset</button>
+  </div>
+</form>

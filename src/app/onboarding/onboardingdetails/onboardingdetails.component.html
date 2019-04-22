@@ -1,0 +1,18 @@
+<div class="student-info" [ngStyle]="{'background':getColor(student.Category)}">
+  <span>{{ student.FirstName }}</span>
+  <span>{{ student.Category }}</span>
+
+  <div class="student-exp">
+    <button class="btn btn-info" (click)="onView(student)">
+      <a href="#home" style="color:white">view</a>
+    </button>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-primary" (click)="onEdit(student)">
+      <a href="#home" style="color:white">edit</a>
+    </button>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+    <button class="btn btn-danger" (click)="onDelete(student)">
+      delete
+    </button>
+  </div>
+</div>

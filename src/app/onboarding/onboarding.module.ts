@@ -6,9 +6,11 @@ import { OnboardingRoutingModule } from './onboarding-routing.module';
 import { OnboardinghomeComponent } from './onboardinghome/onboardinghome.component';
 import { FilterStudentListPipe } from '../pipes/filter-student-list.pipe';
 import { SearchStudentLsitPipePipe } from '../pipes/search-student-lsit-pipe.pipe';
+import { OnboardingformComponent } from './onboardingform/onboardingform.component';
+import { OnboardingdetailsComponent } from './onboardingdetails/onboardingdetails.component';
 
 @NgModule({
-  declarations: [OnboardinghomeComponent, FilterStudentListPipe, SearchStudentLsitPipePipe],
+  declarations: [OnboardinghomeComponent, FilterStudentListPipe, SearchStudentLsitPipePipe, OnboardingformComponent, OnboardingdetailsComponent],
   imports: [
     CommonModule,
     ReactiveFormsModule,
