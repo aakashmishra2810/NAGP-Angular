@@ -1,0 +1,26 @@
+[
+    {
+        "name":"Domicile certificate",
+        "requiredFor":""
+    },
+    {
+        "name": "Birth certificate",
+        "requiredFor": ""
+    },
+    {
+        "name": "Previous marksheets",
+        "requiredFor": ""
+    },
+    {
+        "name": "Signed declaration",
+        "requiredFor": ""
+    },
+    {
+        "name": "Police clearance",
+        "requiredFor": "International"
+    },
+    {
+        "name": "Passport",
+        "requiredFor": "International"
+    }
+]

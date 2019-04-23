@@ -1,0 +1,64 @@
+[
+    {
+     "ID":1,
+        "FirstName": "ashish1",
+        "Category": "Domestic",
+        "DocumentsList":["Domicile certificate", "Birth certificate"],
+        "DOB":"19/06/1992",
+        "FatherName": "gupta",
+        "MotherName": "aunty",
+        "LastScore": 90
+    },
+    {
+        "ID": 2,
+        "FirstName": "ashish2",
+        "Category": "International",
+        "DocumentsList": [
+            "Domicile certificate",
+            "Birth certificate"
+        ],
+        "DOB": "19/06/1993",
+        "FatherName": "gupta",
+        "MotherName": "aunty",
+        "LastScore": 92
+    },
+    {
+        "ID": 3,
+        "FirstName": "ashish3",
+        "Category": "Domestic",
+        "DocumentsList": [
+            "Domicile certificate",
+            "Birth certificate"
+        ],
+        "DOB": "19/06/1994",
+        "FatherName": "gupta",
+        "MotherName": "aunty",
+        "LastScore": 94
+    },
+    {
+        "ID": 4,
+        "FirstName": "ashish4",
+        "Category": "International",
+        "DocumentsList": [
+            "Domicile certificate",
+            "Birth certificate"
+        ],
+        "DOB": "19/06/1994",
+        "FatherName": "gupta",
+        "MotherName": "aunty",
+        "LastScore": 96
+    },
+    {
+        "ID": 5,
+        "FirstName": "ashish5",
+        "Category": "Domestic",
+        "DocumentsList": [
+            "Domicile certificate",
+            "Birth certificate"
+        ],
+        "DOB": "19/06/1994",
+        "FatherName": "gupta",
+        "MotherName": "aunty",
+        "LastScore": 96
+    }
+]
