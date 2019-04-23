@@ -17,7 +17,7 @@ export class OnboardingServiceService {
 
   GetDocumentList() {
     if (this.documentList$.getValue().length == 0) {
-      const url = '../../assets/DocumentList.json';
+      const url = 'assets/DocumentList.json';
       this.http.get<String[]>(url).subscribe(data => {
         //console.log(data);
         this.documentList$.next(data);
